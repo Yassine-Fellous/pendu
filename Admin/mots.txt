@@ -1,5 +1,3 @@
-Plastique
-Citations
 Ados
 Jour
 Rincer
@@ -8,4 +6,5 @@ Champion
 Transatlantique
 Sermon
 Remorqueur
-
+Citations
+Plastique

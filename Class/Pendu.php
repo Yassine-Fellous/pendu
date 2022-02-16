@@ -16,48 +16,31 @@ class Pendu
     {
         if(!empty($_SESSION['victoires']))
         {
-            echo "<p class='bienvenue'> Bienvenue sur le jeu du Pendu !</p>";
-            echo "<div class='zone-welcome'>
-            <img src='image/pendue.png'>
-            </div>";
-            echo "<a class='continuer' href='index.php?etat=jouer'>Continuer</a>"."<br>";
-            echo "<div class='button_container'>
-            <a href='../jeudupendue/traitement/newparty.php'><button class='btn'><span>Nouvelle partie</span></button></a>";  
+            echo "<p> Bienvenue sur le jeu du Pendu !</p>
+            <img src='image/pendue.png'><br>
+            <a href='index.php?etat=jouer'><button>Continuer</button></a> <br>
+            <a href='../jeudupendue/traitement/newparty.php'><button>Nouvelle partie</button></a>";  
         }
         else
         {
-            echo "<div class='bienvenue-zone'>
-            <p class='bienvenue'> Bienvenue sur le jeu du Pendu !</p>
-            </div>";
-            echo "<div class='zone-welcome'>
-            <img src='image/pendue.png'>
-            </div>";
-            echo "<div class='button_container'>
-            <a href='../jeudupendue/traitement/newparty.php'><button class='btn'><span>Nouvelle partie</span></button></a>";
+            echo "<p> Bienvenue sur le jeu du Pendu !</p>
+            <img src='image/pendue.png'><br>
+            <a href='../jeudupendue/traitement/newparty.php'><button>Nouvelle partie</button></a>";
         }
     }
 
     public function lostparty($mot)
     {
-        echo "<div class='msg'> Vous avez perdu ... Le mot était <br><span class='mot'> $mot </span> </div><a class='recommencer' href='../jeudupendue/traitement/restart.php'>Recommencer</a>";
-        echo "<img src='image/9.png'>"; 
+        echo "Vous avez perdu ... Le mot était<span> $mot </span><br>
+        <a href='../jeudupendue/traitement/restart.php'><button>Recommencer</button></a><br>"; 
         exit();
     }
 
     public function Winparty($mot)
     {
-        echo "<img class='confetti' src='image/Confetti.gif'></img>";
-        echo "<div class='msg-zone'>
-        <div class='msg'> Vous avez gagné ! 🥳<br /></div>
-        </div>";
-        echo "<div class='msg2-zone'>
-        <div class='msg2'> Le mot était bien : $mot !<br /></div>
-        </div>";
-        echo "<div class='zone-victoire'>
-        <img class='victoire' src='image/victoire.jpg'>
-        </div>";
-        echo "<div class='button_container'>
-        <a href='../jeudupendue/traitement/newparty.php'><button class='btn'><span>Nouvelle partie</span></button></a></div>";  
+        echo "<p>Vous avez gagné ! 🥳</p><br />
+        <p> Le mot était bien : $mot !</p><br />
+        <a href='../jeudupendue/traitement/restart.php'><button>Recommencer</button></a><br>";  
         $_SESSION['victoires']++;
         exit();
     }
@@ -115,11 +98,8 @@ class Pendu
             }
             else
             {
-                echo "<span class='tirets'>_ </span>";
+                echo "<span>_ </span>";
             }      
         }
     }
 }
-
-?>
-

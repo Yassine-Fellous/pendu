@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le jeu du pendu</title>
-    <link rel="stylesheet" href="Css/pendu.css" type="text/css" />
 </head>
 
 <body>
+    <header>
+    <li><a href="Admin/admin.php">Admin</a></li>
+    </header>
     <main>
-        <div class="global">
             <?php
             session_start();
             $fichier = file("Admin/mots.txt");
@@ -33,30 +34,23 @@
                 if (!empty($_SESSION['played'])) {
                     $pendu->mauvaisesLettres($mot);
                 }
-                echo "<div class='glob'>";
-                echo '<form class="form" method="post">';
+                echo '<form method="post">';
                 $pendu->affichageInput($alphabet);
                 echo '</form>';
-                echo "<div class='droite'>";
-                echo "<div class='tirets'>";
                 $pendu->affichageLettres($mot);
-                echo "</div>";
-                echo "<div class='dessin'>";
                 $false = $_SESSION['false'];
                 if ($false != 0) {
                     echo "<img src='image/$false.png'>";
                 }
-                echo "</div>";
-                echo "</div>";
-                echo "</div>";
+
                 if ($_SESSION['true'] == strlen($mot)) {
                     header("location:index.php?etat=gagne");
                 }
                 if ($_SESSION['false'] >= 8) {
                     header("location:index.php?etat=perdu");
                 }
-                echo "<p class='victoires'> nombre de victoires : $_SESSION[victoires]</p>";
-                echo "<a class='recommencer' href='traitement/restart.php'>Nouveau Mot</a>";
+                echo "<p> nombre de victoires : $_SESSION[victoires]</p>";
+                echo "<a href='traitement/restart.php'><button>Nouveau Mot</button></a>";
             } elseif (!empty($_GET) && $_GET['etat'] == 'perdu') {
                 $pendu->lostparty($mot);
             } elseif (!empty($_GET) && $_GET['etat'] == 'gagne') {
@@ -65,8 +59,10 @@
                 $pendu->homepage();
             }
             ?>
-        </div>
     </main>
+    <footer>
+        <a href="">github</a>
+    </footer>
 </body>
 
 </html>
