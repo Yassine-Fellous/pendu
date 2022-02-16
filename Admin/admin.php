@@ -53,6 +53,6 @@
             ?>
     </main>
     <footer>
-        <li><a href="">github</a></li>
+        <br><li><a href="https://github.com/Yassine-Fellous/pendu">github</a></li>
     </footer>
 </body>
